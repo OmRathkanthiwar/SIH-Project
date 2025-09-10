@@ -1,0 +1,51 @@
+#game-area {
+    padding: 2rem;
+    text-align: center;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 2rem;
+}
+
+#problem-container {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#answer {
+    width: 150px;
+    font-size: 3rem;
+    text-align: center;
+    background: #1e293b;
+    border: 2px solid #334155;
+    color: #e0e6f0;
+    border-radius: 0.5rem;
+}
+
+#start-button-container button {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+}
+
+#feedback {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    min-height: 2rem;
+}
+
+.correct {
+    color: #10b981;
+}
+
+.incorrect {
+    color: #f43f5e;
+}

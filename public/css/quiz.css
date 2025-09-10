@@ -1,0 +1,143 @@
+/* ===========================
+   Global Styles
+=========================== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b, #16213e);
+  color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* ===========================
+   Quiz Container
+=========================== */
+.quiz-container {
+  background: rgba(15, 23, 42, 0.95);
+  width: 100%;
+  max-width: 900px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.quiz-container header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.quiz-container h1 {
+  font-size: 2.2rem;
+  color: #00f7ff;
+  text-shadow: 0 0 10px #00f7ff, 0 0 20px #009dff;
+}
+
+.quiz-container .subject {
+  font-size: 1rem;
+  color: #bbb;
+}
+
+/* ===========================
+   Question Cards
+=========================== */
+.question-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid transparent;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.question-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: #00f7ff;
+  box-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+}
+
+.question-card h2 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #e0e0e0;
+}
+
+/* ===========================
+   Options
+=========================== */
+.options {
+  display: grid;
+  gap: 12px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 255, 255, 0.05);
+  padding: 10px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.option:hover {
+  background: rgba(0, 247, 255, 0.1);
+  border-color: #00f7ff;
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+}
+
+.option input {
+  margin-right: 10px;
+  accent-color: #00f7ff;
+}
+
+.option span {
+  font-size: 1rem;
+}
+
+/* ===========================
+   Footer / Button
+=========================== */
+.quiz-footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.quiz-footer button {
+  background: linear-gradient(90deg, #0077b6, #00f7ff);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 247, 255, 0.4);
+}
+
+.quiz-footer button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 247, 255, 0.7);
+}
+
+/* ===========================
+   Animations
+=========================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

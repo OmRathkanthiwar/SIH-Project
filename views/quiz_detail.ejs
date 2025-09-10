@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= quiz.title %> - Eduventure</title>
+  <link rel="stylesheet" href="/css/quiz.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('partials/sidebar') %>
+
+  <div class="quiz-container">
+    <header>
+      <h1><%= quiz.title %> 🧠</h1>
+      <p class="subject">Subject: <%= quiz.subject %></p>
+    </header>
+
+    <form id="quizForm" method="POST" action="/quiz/<%= quiz.id %>/submit">
+      <% quiz.questions.forEach((q, index) => { %>
+        <div class="question-card">
+          <h2>Q<%= index + 1 %>. <%= q.question %></h2>
+          <div class="options">
+            <% q.options.forEach((opt, i) => { %>
+              <label class="option">
+                <input type="radio" name="q<%= index %>" value="<%= i %>" required>
+                <span><%= opt %></span>
+              </label>
+            <% }) %>
+          </div>
+        </div>
+      <% }) %>
+
+      <div class="quiz-footer">
+        <button type="submit">Submit ✅</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

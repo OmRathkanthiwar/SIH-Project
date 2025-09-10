@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Tutor - Eduventure</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="app-layout">
+    <%- include('partials/sidebar') %>
+
+    <main class="main-content">
+      <h1 class="text-3xl font-bold mb-6 text-blue-400">🤖 Ask AI Tutor</h1>
+      
+      <div class="card p-6">
+        <form action="/ask-ai" method="POST">
+          <label for="question" class="block text-sm font-medium text-gray-300 mb-2">Ask Sikshya Sahayak a question...</label>
+          <div class="flex items-center gap-4">
+            <input type="text" id="question" name="question" placeholder="e.g., Explain Newton's First Law" required
+                   class="input-field flex-grow w-full p-3 border rounded-lg focus:outline-none">
+            <button type="submit" class="btn-primary">Ask</button>
+          </div>
+        </form>
+
+        <% if (question && answer) { %>
+          <div class="mt-8 p-6 rounded-lg bg-gray-800/50 border border-gray-700">
+            <p class="font-semibold text-lg text-gray-300">Your Question:</p>
+            <p class="mb-4 text-gray-400"><%= question %></p>
+            <hr class="border-gray-600 my-4">
+            <p class="font-semibold text-lg text-blue-400">Sikshya's Answer:</p>
+            <p class="text-gray-300 whitespace-pre-line"><%= answer %></p>
+          </div>
+        <% } %>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

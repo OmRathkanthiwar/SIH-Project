@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "title": "General Knowledge Quiz",
+    "subject": "General Knowledge",
+    "questions": [
+      { "question": "What is the capital of India?", "options": ["New Delhi","Mumbai","Kolkata","Chennai"], "answer": 0 },
+      { "question": "Who is known as the Father of Nation?", "options": ["Mahatma Gandhi","Jawaharlal Nehru","Bhagat Singh","Subhash Chandra Bose"], "answer": 0 },
+      { "question": "What is the national animal of India?", "options": ["Tiger","Elephant","Lion","Peacock"], "answer": 0 },
+      { "question": "Which is the largest ocean?", "options": ["Atlantic","Indian","Pacific","Arctic"], "answer": 2 },
+      { "question": "Who invented the telephone?", "options": ["Alexander Graham Bell","Thomas Edison","Nikola Tesla","Guglielmo Marconi"], "answer": 0 },
+      { "question": "Which planet is known as Red Planet?", "options": ["Mars","Venus","Jupiter","Saturn"], "answer": 0 },
+      { "question": "Who was the first Prime Minister of India?", "options": ["Jawaharlal Nehru","Indira Gandhi","Mahatma Gandhi","Rajendra Prasad"], "answer": 0 },
+      { "question": "Which gas do plants release during photosynthesis?", "options": ["Oxygen","Carbon Dioxide","Nitrogen","Hydrogen"], "answer": 0 },
+      { "question": "What is the national sport of India?", "options": ["Hockey","Cricket","Football","Kabaddi"], "answer": 0 },
+      { "question": "Which is the smallest continent?", "options": ["Australia","Europe","Antarctica","South America"], "answer": 0 }
+    ]
+  }
+]
+
+

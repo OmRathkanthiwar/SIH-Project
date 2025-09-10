@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Sprint - Eduventure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/math_sprint.css">
+</head>
+<body>
+    <div class="app-layout">
+        <%- include('partials/sidebar') %>
+        <main class="main-content">
+            <h1 class="text-3xl font-bold mb-4 text-blue-400">➕ Math Sprint</h1>
+            <div id="game-area" class="card">
+                <div class="game-header">
+                    <p>Score: <span id="score">0</span></p>
+                    <p>Time Left: <span id="time-left">60</span>s</p>
+                </div>
+                <div id="problem-container">
+                    <span id="operand1"></span>
+                    <span id="operator"></span>
+                    <span id="operand2"></span>
+                    <span>=</span>
+                    <input type="number" id="answer" autofocus>
+                </div>
+                <div id="start-button-container">
+                    <button id="start-btn" class="btn-primary">Start Game</button>
+                </div>
+                <p id="feedback"></p>
+            </div>
+        </main>
+    </div>
+    <script src="/js/math_sprint.js"></script>
+</body>
+</html>

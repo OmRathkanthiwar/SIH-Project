@@ -1,0 +1,79 @@
+/* Leaderboard Page Styles */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #0a0f1c, #101b2d);
+  color: #f0f4ff;
+}
+
+.leaderboard-container {
+  margin-left: 260px; /* space for sidebar */
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.leaderboard-card {
+  background: rgba(20, 25, 40, 0.9);
+  border: 1px solid #1e2b47;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  animation: fadeInUp 0.8s ease;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #4db8ff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th {
+  background: #152238;
+  padding: 12px;
+  font-size: 1rem;
+  color: #4db8ff;
+  border-bottom: 2px solid #2d3d5c;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #2d3d5c;
+}
+
+tr:hover {
+  background: rgba(77, 184, 255, 0.1);
+  transform: scale(1.01);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.rank {
+  font-weight: bold;
+  color: #ffd166;
+}
+
+.top-player {
+  background: rgba(0, 173, 181, 0.2);
+  border-left: 4px solid #00adb5;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

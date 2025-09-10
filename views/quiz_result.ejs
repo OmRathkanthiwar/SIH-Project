@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Results</title>
+  <link rel="stylesheet" href="/css/quiz_result.css">
+</head>
+<body>
+  <div class="quiz-container">
+    <h1 class="result-title">🎉 Quiz Results 🎉</h1>
+
+    <div class="result-score-card">
+      <h2>Your Score</h2>
+      <div class="score-circle">
+        <span><%= score %> / <%= total %></span>
+      </div>
+    </div>
+
+    <div class="result-summary">
+      <h2>Answer Review</h2>
+      <ul>
+        <% results.forEach((q, index) => { %>
+          <li class="<%= q.correct ? 'correct' : 'incorrect' %>">
+            <strong>Q<%= index+1 %>:</strong> <%= q.question %> <br>
+            <span>Your Answer:</span> <%= q.userAnswer %> <br>
+            <span>Correct Answer:</span> <%= q.correctAnswer %>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+
+    <div class="result-actions">
+      <a href="/quiz/<%= quizId %>" class="btn retry">🔄 Try Again</a>
+      <a href="/student" class="btn dashboard">🏠 Dashboard</a>
+    </div>
+  </div>
+</body>
+</html>

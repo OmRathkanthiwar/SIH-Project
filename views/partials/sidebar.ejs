@@ -1,0 +1,40 @@
+<div class="sidebar">
+    <h2>Eduventure</h2>
+
+    <% if(user.role === 'student'){ %>
+        <a href="/student" class="<%= currentPath === '/student' ? 'active' : '' %>">🏠 Dashboard</a>
+        <a href="/quizzes" class="<%= currentPath.startsWith('/quiz') ? 'active' : '' %>">📝 Quizzes</a>
+        <a href="/leaderboard" class="<%= currentPath === '/leaderboard' ? 'active' : '' %>">🏆 Leaderboard</a>
+        <a href="/ask-ai" class="<%= currentPath === '/ask-ai' ? 'active' : '' %>">🤖 Ask AI Tutor</a>
+        <a href="/games" class="<%= currentPath.startsWith('/games') ? 'active' : '' %>">🎮 Games</a>
+        <a href="/profile" class="<%= currentPath === '/profile' ? 'active' : '' %>">👤 My Profile</a>
+    <% } %>
+
+    <% if(user.role === 'teacher'){ %>
+        <a href="/teacher" class="<%= currentPath === '/teacher' ? 'active' : '' %>">📊 Teacher Dashboard</a>
+        <a href="/teacher/quizzes" class="<%= currentPath.startsWith('/teacher/quiz') ? 'active' : '' %>">📝 Manage Quizzes</a>
+        <a href="/games" class="<%= currentPath.startsWith('/games') ? 'active' : '' %>">🎮 View Games</a>
+    <% } %>
+
+    <a href="/logout" class="logout-btn">🚪 Logout</a>
+</div>
+
+<style>
+    .sidebar a.active {
+        background: #3b82f6;
+        color: white;
+        font-weight: bold;
+    }
+    .sidebar .logout-btn {
+        margin-top: auto;
+        background: #ef4444;
+    }
+    .sidebar .logout-btn:hover {
+        background: #dc2626;
+    }
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+

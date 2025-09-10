@@ -1,0 +1,112 @@
+/* ===== Bluish-Black Theme ===== */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0a0f1e, #1b2735);
+    color: #e0e6f0;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    color: #cdd9f5;
+}
+
+/* Cards */
+.card {
+    background: #101827;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    transition: transform 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-3px);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    background: #0f172a;
+    min-height: 100vh;
+    color: #dbeafe;
+    padding: 2rem 1rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.sidebar h2 {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #60a5fa;
+}
+
+.sidebar a {
+    display: block;
+    color: #e0e6f0;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    background: #1e293b;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+.sidebar a:hover {
+    background: #3b82f6;
+    color: white;
+}
+
+/* Sidebar Buttons */
+.sidebar button {
+    width: 100%;
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem;
+    margin-top: 18rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.sidebar button:hover {
+    background: #1e40af;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 260px;
+    padding: 2rem;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s;
+}
+.btn-primary:hover {
+    background-color: #1e40af;
+}
+
+/* Inputs */
+input.input-field {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #475569;
+    border-radius: 0.5rem;
+    background: #1e293b;
+    color: white;
+}
+
+/* by me */
