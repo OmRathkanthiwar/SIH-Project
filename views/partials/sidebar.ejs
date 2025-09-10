@@ -1,40 +1,32 @@
 <div class="sidebar">
-    <h2>Eduventure</h2>
+    <h2 class="text-2xl font-bold text-center mb-8 text-blue-400"><%= t.eduventure %></h2>
 
-    <% if(user.role === 'student'){ %>
-        <a href="/student" class="<%= currentPath === '/student' ? 'active' : '' %>">🏠 Dashboard</a>
-        <a href="/quizzes" class="<%= currentPath.startsWith('/quiz') ? 'active' : '' %>">📝 Quizzes</a>
-        <a href="/leaderboard" class="<%= currentPath === '/leaderboard' ? 'active' : '' %>">🏆 Leaderboard</a>
-        <a href="/ask-ai" class="<%= currentPath === '/ask-ai' ? 'active' : '' %>">🤖 Ask AI Tutor</a>
-        <a href="/games" class="<%= currentPath.startsWith('/games') ? 'active' : '' %>">🎮 Games</a>
-        <a href="/profile" class="<%= currentPath === '/profile' ? 'active' : '' %>">👤 My Profile</a>
-    <% } %>
+    <div class="sidebar-nav">
+        <% if(user.role === 'student'){ %>
+            <a href="/student" class="<%= currentPath === '/student' ? 'active' : '' %>"><%= t.dashboard %></a>
+            <a href="/quizzes" class="<%= currentPath.startsWith('/quiz') ? 'active' : '' %>"><%= t.quizzes %></a>
+            <a href="/leaderboard" class="<%= currentPath === '/leaderboard' ? 'active' : '' %>"><%= t.leaderboard %></a>
+            <a href="/ask-ai" class="<%= currentPath === '/ask-ai' ? 'active' : '' %>"><%= t.aiTutor %></a>
+            <a href="/games" class="<%= currentPath.startsWith('/games') ? 'active' : '' %>"><%= t.games %></a>
+            <a href="/profile" class="<%= currentPath === '/profile' ? 'active' : '' %>"><%= t.myProfile %></a>
+        <% } %>
 
-    <% if(user.role === 'teacher'){ %>
-        <a href="/teacher" class="<%= currentPath === '/teacher' ? 'active' : '' %>">📊 Teacher Dashboard</a>
-        <a href="/teacher/quizzes" class="<%= currentPath.startsWith('/teacher/quiz') ? 'active' : '' %>">📝 Manage Quizzes</a>
-        <a href="/games" class="<%= currentPath.startsWith('/games') ? 'active' : '' %>">🎮 View Games</a>
-    <% } %>
+        <% if(user.role === 'teacher'){ %>
+            <a href="/teacher" class="<%= currentPath === '/teacher' ? 'active' : '' %>"><%= t.dashboard %></a>
+            <a href="/teacher/students" class="<%= currentPath === '/teacher/students' ? 'active' : '' %>"><%= t.manageStudents %></a>
+            <a href="/teacher/quizzes" class="<%= currentPath.startsWith('/teacher/quiz') ? 'active' : '' %>"><%= t.manageQuizzes %></a>
+        <% } %>
+    </div>
 
-    <a href="/logout" class="logout-btn">🚪 Logout</a>
+    <div class="sidebar-footer">
+        <a href="/toggle-lang" class="lang-toggle">
+            <% if (currentLang === 'en') { %>
+                <%= t.changeToOdia %>
+            <% } else { %>
+                Switch to English
+            <% } %>
+        </a>
+        <a href="/logout" class="logout-btn"><%= t.logout %></a>
+    </div>
 </div>
-
-<style>
-    .sidebar a.active {
-        background: #3b82f6;
-        color: white;
-        font-weight: bold;
-    }
-    .sidebar .logout-btn {
-        margin-top: auto;
-        background: #ef4444;
-    }
-    .sidebar .logout-btn:hover {
-        background: #dc2626;
-    }
-    .sidebar {
-        display: flex;
-        flex-direction: column;
-    }
-</style>
 

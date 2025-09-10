@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Students - Eduventure</title>
+    <title><%= t.manageStudents %> - <%= t.eduventure %></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -11,49 +11,58 @@
     <div class="app-layout">
         <%- include('partials/sidebar') %>
         <main class="main-content">
-            <h1 class="text-3xl font-bold mb-6 text-blue-400">Manage Students</h1>
-            
-            <!-- Add New Student Card -->
+            <h1 class="text-3xl font-bold mb-6 text-blue-400"><%= t.manageStudents %></h1>
+
+            <!-- Add Student Form -->
             <div class="card p-6 mb-8">
-                <h2 class="text-2xl font-semibold mb-4 text-blue-300">Add New Student</h2>
-                <form action="/teacher/students/add" method="POST" class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+                <h2 class="text-2xl font-semibold mb-4"><%= t.addNewStudent %></h2>
+                <form action="/teacher/students/add" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Form fields -->
                     <div>
-                        <label for="name" class="block text-sm font-medium text-gray-300">Full Name</label>
+                        <label for="name" class="block text-sm font-medium text-gray-300"><%= t.name %></label>
                         <input type="text" name="name" id="name" required class="input-field mt-1">
                     </div>
                     <div>
-                        <label for="grade" class="block text-sm font-medium text-gray-300">Grade</label>
+                        <label for="grade" class="block text-sm font-medium text-gray-300"><%= t.grade %></label>
                         <input type="number" name="grade" id="grade" required class="input-field mt-1">
                     </div>
-                    <button type="submit" class="btn-primary py-2.5 h-fit">Add Student</button>
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-gray-300"><%= t.username %></label>
+                        <input type="text" name="username" id="username" required class="input-field mt-1">
+                    </div>
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-300"><%= t.password %></label>
+                        <input type="password" name="password" id="password" required class="input-field mt-1">
+                    </div>
+                    <div class="md:col-span-2">
+                        <button type="submit" class="btn-primary w-full md:w-auto"><%= t.addStudent %></button>
+                    </div>
                 </form>
             </div>
 
-            <!-- Existing Students Table -->
-            <div class="card p-6">
-                <h2 class="text-2xl font-semibold mb-4 text-blue-300">Student Roster</h2>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left">
-                        <thead>
-                            <tr class="border-b border-gray-700">
-                                <th class="p-3">Name</th>
-                                <th class="p-3">Grade</th>
-                                <th class="p-3">Adventure Points</th>
+            <!-- Student List -->
+            <div class="card p-0">
+                <table class="w-full text-left">
+                    <thead class="border-b-2 border-gray-700">
+                        <tr>
+                            <th class="p-3"><%= t.name %></th>
+                            <th class="p-3"><%= t.grade %></th>
+                            <th class="p-3"><%= t.adventurePoints %></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% students.forEach(student => { %>
+                            <tr class="border-b border-gray-800 hover:bg-gray-800/50">
+                                <td class="p-3"><%= student.details.name %></td>
+                                <td class="p-3"><%= student.details.grade %></td>
+                                <td class="p-3"><%= student.details.adventurePoints %></td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <% students.forEach(student => { %>
-                                <tr class="border-b border-gray-800 hover:bg-gray-800/50">
-                                    <td class="p-3"><%= student.name %></td>
-                                    <td class="p-3"><%= student.grade %></td>
-                                    <td class="p-3"><%= student.adventurePoints %></td>
-                                </tr>
-                            <% }) %>
-                        </tbody>
-                    </table>
-                </div>
+                        <% }) %>
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>
 </body>
 </html>
+

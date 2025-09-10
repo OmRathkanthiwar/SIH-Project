@@ -7,6 +7,10 @@ body {
     color: #e0e6f0;
 }
 
+.app-layout {
+    display: flex;
+}
+
 /* Headings */
 h1, h2, h3, h4 {
     color: #cdd9f5;
@@ -15,7 +19,7 @@ h1, h2, h3, h4 {
 /* Cards */
 .card {
     background: #101827;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 0.75rem;
     box-shadow: 0 0 15px rgba(0,0,0,0.6);
     transition: transform 0.2s ease;
@@ -34,6 +38,8 @@ h1, h2, h3, h4 {
     position: fixed;
     left: 0;
     top: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar h2 {
@@ -41,6 +47,10 @@ h1, h2, h3, h4 {
     margin-bottom: 2rem;
     text-align: center;
     color: #60a5fa;
+}
+
+.sidebar nav {
+    flex-grow: 1;
 }
 
 .sidebar a {
@@ -51,37 +61,58 @@ h1, h2, h3, h4 {
     font-weight: 600;
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
-    background: #1e293b;
     transition: all 0.2s ease-in-out;
-    text-align: center;
+    text-align: left; /* Changed from center */
 }
 
-.sidebar a:hover {
+.sidebar a.active {
     background: #3b82f6;
     color: white;
 }
 
-/* Sidebar Buttons */
-.sidebar button {
+.sidebar a:not(.active):hover {
+    background: #1e293b;
+}
+
+/* Sidebar Footer for buttons */
+.sidebar-footer {
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+.sidebar-footer a,
+.sidebar-footer button {
     width: 100%;
     background: #2563eb;
     color: white;
     padding: 0.75rem;
-    margin-top: 18rem;
+    margin-top: 0.5rem;
     border: none;
     border-radius: 0.5rem;
     font-weight: bold;
     cursor: pointer;
     transition: background 0.2s;
+    display: block;
+    text-align: center;
+    text-decoration: none;
 }
-.sidebar button:hover {
+.sidebar-footer a:hover,
+.sidebar-footer button:hover {
     background: #1e40af;
 }
 
+.sidebar-footer .lang-toggle {
+    background: #475569;
+}
+.sidebar-footer .lang-toggle:hover {
+    background: #334155;
+}
+
+
 /* Main Content */
 .main-content {
-    margin-left: 260px;
+    margin-left: 240px; /* Adjusted to match sidebar width */
     padding: 2rem;
+    width: calc(100% - 240px);
 }
 
 /* Buttons */
@@ -94,13 +125,15 @@ h1, h2, h3, h4 {
     cursor: pointer;
     border: none;
     transition: background 0.2s;
+    text-decoration: none; /* For <a> tags styled as buttons */
+    display: inline-block; /* For <a> tags */
 }
 .btn-primary:hover {
     background-color: #1e40af;
 }
 
 /* Inputs */
-input.input-field {
+.input-field {
     width: 100%;
     padding: 0.6rem;
     border: 1px solid #475569;
@@ -109,4 +142,3 @@ input.input-field {
     color: white;
 }
 
-/* by me */

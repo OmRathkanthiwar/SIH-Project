@@ -1,21 +1,121 @@
 [
   {
     "id": 1,
-    "title": "General Knowledge Quiz",
+    "title": "Science Quiz",
+    "subject": "Science",
+    "questions": [
+      { "question": "What is H2O commonly known as?", "options": ["Oxygen","Water","Hydrogen","Salt"], "answer": 1 },
+      { "question": "Which planet is the largest in our solar system?", "options": ["Earth","Jupiter","Saturn","Neptune"], "answer": 1 },
+      { "question": "What part of the cell contains genetic material?", "options": ["Nucleus","Mitochondria","Cytoplasm","Ribosome"], "answer": 0 },
+      { "question": "What is the speed of light?", "options": ["3 × 10^8 m/s","3 × 10^6 m/s","3 × 10^5 m/s","3 × 10^7 m/s"], "answer": 0 },
+      { "question": "Which gas is essential for human respiration?", "options": ["Oxygen","Carbon Dioxide","Nitrogen","Hydrogen"], "answer": 0 },
+      { "question": "Who proposed the theory of relativity?", "options": ["Isaac Newton","Albert Einstein","Galileo Galilei","Marie Curie"], "answer": 1 },
+      { "question": "What is the chemical symbol for gold?", "options": ["Ag","Au","Pb","Fe"], "answer": 1 },
+      { "question": "Which organ is responsible for pumping blood?", "options": ["Brain","Lungs","Heart","Kidneys"], "answer": 2 },
+      { "question": "What is the boiling point of water at sea level?", "options": ["90°C","100°C","120°C","80°C"], "answer": 1 },
+      { "question": "Which vitamin is produced when our skin is exposed to sunlight?", "options": ["Vitamin A","Vitamin B","Vitamin C","Vitamin D"], "answer": 3 }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Mathematics Quiz",
+    "subject": "Mathematics",
+    "questions": [
+      { "question": "What is 12 × 8?", "options": ["96","108","86","112"], "answer": 0 },
+      { "question": "The value of π (pi) up to 2 decimal places is?", "options": ["3.12","3.14","3.16","3.18"], "answer": 1 },
+      { "question": "What is the square root of 144?", "options": ["10","11","12","14"], "answer": 2 },
+      { "question": "What is 15% of 200?", "options": ["20","25","30","35"], "answer": 2 },
+      { "question": "Which is a prime number?", "options": ["21","33","37","49"], "answer": 2 },
+      { "question": "Simplify: 5² + 3²", "options": ["25","34","30","50"], "answer": 1 },
+      { "question": "If a triangle has angles 90°, 45°, then the third angle is?", "options": ["30°","45°","60°","90°"], "answer": 1 },
+      { "question": "What is the perimeter of a square of side 7?", "options": ["21","28","35","49"], "answer": 1 },
+      { "question": "The mean of 2, 4, 6, 8, 10 is?", "options": ["4","5","6","7"], "answer": 2 },
+      { "question": "What is 1000 ÷ 25?", "options": ["25","30","35","40"], "answer": 3 }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Science Quiz 2",
+    "subject": "Science",
+    "questions": [
+      { "question": "Which gas is used in photosynthesis?", "options": ["Oxygen","Carbon Dioxide","Nitrogen","Hydrogen"], "answer": 1 },
+      { "question": "Which part of the plant conducts photosynthesis?", "options": ["Root","Stem","Leaf","Flower"], "answer": 2 },
+      { "question": "What is the powerhouse of the cell?", "options": ["Nucleus","Mitochondria","Ribosome","Cytoplasm"], "answer": 1 },
+      { "question": "Which force keeps planets in orbit?", "options": ["Magnetism","Friction","Gravity","Nuclear"], "answer": 2 },
+      { "question": "What is the SI unit of force?", "options": ["Newton","Joule","Watt","Pascal"], "answer": 0 },
+      { "question": "Which vitamin helps in blood clotting?", "options": ["Vitamin A","Vitamin K","Vitamin C","Vitamin D"], "answer": 1 },
+      { "question": "What planet is closest to the Sun?", "options": ["Earth","Mars","Mercury","Venus"], "answer": 2 },
+      { "question": "Which organ purifies blood in humans?", "options": ["Lungs","Heart","Kidneys","Liver"], "answer": 2 },
+      { "question": "What is the normal boiling point of water?", "options": ["90°C","100°C","120°C","80°C"], "answer": 1 },
+      { "question": "What is the chemical formula of table salt?", "options": ["NaCl","H2O","CO2","KCl"], "answer": 0 }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Technology Quiz",
+    "subject": "Technology",
+    "questions": [
+      { "question": "Who is known as the father of computers?", "options": ["Alan Turing","Charles Babbage","Bill Gates","Steve Jobs"], "answer": 1 },
+      { "question": "What does 'HTTP' stand for?", "options": ["Hyper Transfer Text Protocol","HyperText Transfer Protocol","High Transfer Tech Program","Hyper Terminal Test Protocol"], "answer": 1 },
+      { "question": "Which company developed the iPhone?", "options": ["Google","Apple","Samsung","Microsoft"], "answer": 1 },
+      { "question": "What does 'AI' stand for?", "options": ["Artificial Intelligence","Automated Interface","Advanced Internet","Applied Innovation"], "answer": 0 },
+      { "question": "Which programming language is used for web browsers?", "options": ["C++","Python","JavaScript","Java"], "answer": 2 },
+      { "question": "What is the brain of the computer?", "options": ["RAM","CPU","ROM","Hard Disk"], "answer": 1 },
+      { "question": "Which social media platform is owned by Meta?", "options": ["Twitter","Instagram","Snapchat","LinkedIn"], "answer": 1 },
+      { "question": "What does USB stand for?", "options": ["Universal Serial Bus","Universal Service Board","United System Backup","Unique Serial Bus"], "answer": 0 },
+      { "question": "Which is the most used search engine?", "options": ["Yahoo","Bing","Google","DuckDuckGo"], "answer": 2 },
+      { "question": "Which company created Windows OS?", "options": ["Microsoft","Apple","IBM","Intel"], "answer": 0 }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Engineering Quiz",
+    "subject": "Engineering",
+    "questions": [
+      { "question": "Which branch deals with construction of buildings?", "options": ["Civil","Mechanical","Electrical","Chemical"], "answer": 0 },
+      { "question": "Which law is used in levers?", "options": ["Newton’s First Law","Archimedes’ Principle","Law of Moments","Ohm’s Law"], "answer": 2 },
+      { "question": "What does CAD stand for?", "options": ["Computer Aided Design","Central Auto Design","Computer Automated Data","Civil Architectural Draft"], "answer": 0 },
+      { "question": "Which material is commonly used in electrical wiring?", "options": ["Iron","Copper","Aluminum","Steel"], "answer": 1 },
+      { "question": "Which engine is used in cars?", "options": ["DC Motor","AC Motor","Internal Combustion Engine","Steam Engine"], "answer": 2 },
+      { "question": "What does HVAC stand for?", "options": ["Heat Vent Air Control","Heating Ventilation and Air Conditioning","Hot Vent Auto Control","High Voltage Air Cooling"], "answer": 1 },
+      { "question": "Which structure supports a bridge?", "options": ["Pillar","Column","Beam","All of these"], "answer": 3 },
+      { "question": "Which unit is used for measuring electric current?", "options": ["Volt","Ampere","Ohm","Watt"], "answer": 1 },
+      { "question": "Which engineer works with circuits and electronics?", "options": ["Civil","Mechanical","Electrical","Chemical"], "answer": 2 },
+      { "question": "What is the strongest natural material?", "options": ["Wood","Iron","Diamond","Steel"], "answer": 2 }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Mathematics Quiz 2",
+    "subject": "Mathematics",
+    "questions": [
+      { "question": "What is 25 × 4?", "options": ["50","75","100","125"], "answer": 2 },
+      { "question": "What is the square of 15?", "options": ["200","215","225","250"], "answer": 2 },
+      { "question": "What is 2/3 of 90?", "options": ["30","45","60","75"], "answer": 2 },
+      { "question": "Simplify: 6³", "options": ["18","36","216","126"], "answer": 2 },
+      { "question": "Which is a Pythagorean triple?", "options": ["2,3,4","3,4,5","5,6,7","7,8,10"], "answer": 1 },
+      { "question": "Solve: 50 ÷ 2 + 10", "options": ["20","25","30","35"], "answer": 2 },
+      { "question": "What is the probability of getting a head in a coin toss?", "options": ["0.25","0.5","0.75","1"], "answer": 1 },
+      { "question": "What is the value of √169?", "options": ["11","12","13","14"], "answer": 2 },
+      { "question": "If a rectangle has length 10 and width 5, what is its area?", "options": ["25","30","40","50"], "answer": 3 },
+      { "question": "What is 7! (factorial)?", "options": ["720","840","5040","1000"], "answer": 2 }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "General Knowledge Quiz 2",
     "subject": "General Knowledge",
     "questions": [
-      { "question": "What is the capital of India?", "options": ["New Delhi","Mumbai","Kolkata","Chennai"], "answer": 0 },
-      { "question": "Who is known as the Father of Nation?", "options": ["Mahatma Gandhi","Jawaharlal Nehru","Bhagat Singh","Subhash Chandra Bose"], "answer": 0 },
-      { "question": "What is the national animal of India?", "options": ["Tiger","Elephant","Lion","Peacock"], "answer": 0 },
-      { "question": "Which is the largest ocean?", "options": ["Atlantic","Indian","Pacific","Arctic"], "answer": 2 },
-      { "question": "Who invented the telephone?", "options": ["Alexander Graham Bell","Thomas Edison","Nikola Tesla","Guglielmo Marconi"], "answer": 0 },
-      { "question": "Which planet is known as Red Planet?", "options": ["Mars","Venus","Jupiter","Saturn"], "answer": 0 },
-      { "question": "Who was the first Prime Minister of India?", "options": ["Jawaharlal Nehru","Indira Gandhi","Mahatma Gandhi","Rajendra Prasad"], "answer": 0 },
-      { "question": "Which gas do plants release during photosynthesis?", "options": ["Oxygen","Carbon Dioxide","Nitrogen","Hydrogen"], "answer": 0 },
-      { "question": "What is the national sport of India?", "options": ["Hockey","Cricket","Football","Kabaddi"], "answer": 0 },
-      { "question": "Which is the smallest continent?", "options": ["Australia","Europe","Antarctica","South America"], "answer": 0 }
+      { "question": "Which country is called the Land of Rising Sun?", "options": ["China","Japan","Thailand","India"], "answer": 1 },
+      { "question": "Who was the first President of the USA?", "options": ["Abraham Lincoln","George Washington","Thomas Jefferson","John Adams"], "answer": 1 },
+      { "question": "Which is the largest desert in the world?", "options": ["Sahara","Gobi","Kalahari","Arctic"], "answer": 0 },
+      { "question": "In which year did India get independence?", "options": ["1942","1947","1950","1952"], "answer": 1 },
+      { "question": "Which is the tallest mountain in the world?", "options": ["K2","Kanchenjunga","Mount Everest","Kilimanjaro"], "answer": 2 },
+      { "question": "Who wrote the national anthem of India?", "options": ["Rabindranath Tagore","Bankim Chandra","Mahatma Gandhi","Subhash Chandra Bose"], "answer": 0 },
+      { "question": "Which festival is known as the Festival of Lights?", "options": ["Holi","Diwali","Eid","Christmas"], "answer": 1 },
+      { "question": "Which currency is used in the USA?", "options": ["Dollar","Euro","Pound","Yen"], "answer": 0 },
+      { "question": "Which is the smallest planet in the solar system?", "options": ["Mercury","Mars","Venus","Pluto"], "answer": 0 },
+      { "question": "What is the national flower of India?", "options": ["Rose","Lotus","Sunflower","Jasmine"], "answer": 1 }
     ]
   }
 ]
-
-

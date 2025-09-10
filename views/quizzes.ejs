@@ -1,38 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizzes - Eduventure</title>
+    <title><%= t.quizzes %> - <%= t.eduventure %></title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
-    <style>
-        .quiz-card {
-            background: #101827;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #334155;
-        }
-        .quiz-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-        }
-    </style>
 </head>
 <body>
     <div class="app-layout">
         <%- include('partials/sidebar') %>
-
         <main class="main-content">
-            <h1 class="text-3xl font-bold mb-6 text-blue-400">📚 Available Quizzes</h1>
+            <h1 class="text-3xl font-bold mb-6 text-blue-400">📚 <%= t.availableQuizzes %></h1>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <% quizzes.forEach((quiz) => { %>
-                    <div class="quiz-card">
-                        <h2 class="text-xl font-semibold text-blue-300 mb-2"><%= quiz.title %></h2>
-                        <p class="text-gray-400 mb-4"><strong>Subject:</strong> <%= quiz.subject %></p>
-                        <a href="/quiz/<%= quiz.id %>" class="btn-primary w-full text-center block">Take Quiz</a>
+                    <div class="card p-6 flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-xl font-semibold"><%= quiz.title %></h2>
+                            <p class="text-gray-400"><%= t.subject %>: <%= quiz.subject %></p>
+                        </div>
+                        <a href="/quiz/<%= quiz.id %>" class="btn-primary mt-4 text-center"><%= t.takeQuiz %></a>
                     </div>
                 <% }) %>
             </div>
@@ -40,3 +27,4 @@
     </div>
 </body>
 </html>
+

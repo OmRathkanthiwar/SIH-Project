@@ -2,66 +2,59 @@
 <html lang="en" class="dark">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Student Dashboard - Eduventure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= t.dashboard %> - <%= t.eduventure %></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body class="bg-background text-foreground">
+<body>
+    <div class="app-layout">
+        <%- include('partials/sidebar') %>
+        <main class="main-content flex flex-col">
+            <header class="mb-8">
+                <h1 class="text-3xl font-bold"><%= greeting %>, <%= user.details.name.split(' ')[0] %>!</h1>
+                <p class="text-gray-400"><%= t.welcomeMessage %></p>
+            </header>
 
-    <%- include('partials/sidebar') %>
-
-
-<div class="app-layout">
-
-    <main class="main-content flex flex-col">
-        <header class="mb-6">
-            <h1 class="text-3xl font-bold"><%= greeting %>, <%= user.details.name.split(' ')[0] %>!</h1>
-            <p class="text-foreground/70">Welcome to Eduventure – your gamified learning platform</p>
-        </header>
-
-        <div class="content-card space-y-8">
-            <!-- Subjects Section -->
-            <section>
-                <h2 class="text-2xl font-semibold mb-4">Your Subjects</h2>
-                <div class="grid grid-cols-2 gap-4">
-                    <% subjects.forEach(subject => { %>
-                        <div class="p-4 rounded-lg shadow bg-white flex items-center justify-between">
-                            <span class="text-2xl text-gray-500"><%= subject.icon %> <%= subject.name %></span>
-                            <span class="text-gray-500"><%= subject.progress %>% Progress</span>
-                        </div>
-                    <% }); %>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Subjects Section -->
+                <div class="card p-6 md:col-span-2">
+                    <h2 class="text-2xl font-semibold mb-4"><%= t.yourSubjects %></h2>
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                        <% subjects.forEach(subject => { %>
+                            <div class="p-4 rounded-lg bg-gray-800/50 flex flex-col items-center justify-center text-center">
+                                <span class="text-4xl mb-2"><%= subject.icon %></span>
+                                <span class="font-semibold"><%= subject.name %></span>
+                                <span class="text-sm text-gray-400"><%= subject.progress %>% Progress</span>
+                            </div>
+                        <% }); %>
+                    </div>
                 </div>
-            </section>
 
-            <!-- Adventure Points Section -->
-            <section>
-                <h2 class="text-2xl font-semibold mb-4">Adventure Points</h2>
-                <div class="p-4 rounded-lg shadow bg-white">
-                    <p class="text-lg text-gray-500">Total Points: <span class="font-bold"><%= user.details.adventurePoints %></span></p>
+                <!-- Adventure Points Section -->
+                <div class="card p-6">
+                    <h2 class="text-2xl font-semibold mb-4"><%= t.adventurePoints %></h2>
+                    <p class="text-3xl font-bold text-blue-400"><%= user.details.adventurePoints %></p>
+                    <p class="text-gray-400"><%= t.totalPoints %></p>
                 </div>
-            </section>
 
-            <!-- Quizzes Section -->
-            <section>
-                <h2 class="text-2xl font-semibold mb-4">Quizzes</h2>
-                <div class="p-4 rounded-lg shadow bg-white">
-                    <a href="/quizzes" class="btn btn-primary">Take a Quiz</a>
+                <!-- Quizzes Section -->
+                <div class="card p-6">
+                    <h2 class="text-2xl font-semibold mb-4"><%= t.quizzes %></h2>
+                    <p class="text-gray-400 mb-4">Ready for a challenge? Test your knowledge!</p>
+                    <a href="/quizzes" class="btn-primary inline-block"><%= t.takeAQuiz %></a>
                 </div>
-            </section>
 
-            <!-- AI Tutor Section -->
-            <section>
-                <h2 class="text-2xl font-semibold mb-4">Need Help?</h2>
-                <div class="p-4 rounded-lg shadow bg-white">
-                    <a href="/ask-ai" class="btn btn-secondary text-gray-500">Ask Sikshya Sahayak (AI Tutor)</a>
+                <!-- AI Tutor Section -->
+                <div class="card p-6 md:col-span-2">
+                    <h2 class="text-2xl font-semibold mb-4"><%= t.needHelp %></h2>
+                    <p class="text-gray-400 mb-4">Have a question? Our AI Tutor is here to help you.</p>
+                    <a href="/ask-ai" class="btn-primary inline-block"><%= t.askAITutor %></a>
                 </div>
-            </section>
-        </div>
-    </main>
-</div>
-
-
+            </div>
+        </main>
+    </div>
 </body>
 </html>
+

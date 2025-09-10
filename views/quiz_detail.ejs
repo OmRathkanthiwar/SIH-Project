@@ -2,19 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><%= quiz.title %> - Eduventure</title>
+  <title><%= quiz.title %> - <%= t.eduventure %></title>
   <link rel="stylesheet" href="/css/quiz.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <%- include('partials/sidebar') %>
-
   <div class="quiz-container">
     <header>
       <h1><%= quiz.title %> 🧠</h1>
-      <p class="subject">Subject: <%= quiz.subject %></p>
+      <p class="subject"><%= t.subject %>: <%= quiz.subject %></p>
     </header>
-
     <form id="quizForm" method="POST" action="/quiz/<%= quiz.id %>/submit">
       <% quiz.questions.forEach((q, index) => { %>
         <div class="question-card">
@@ -29,11 +27,11 @@
           </div>
         </div>
       <% }) %>
-
       <div class="quiz-footer">
-        <button type="submit">Submit ✅</button>
+        <button type="submit"><%= t.submit %> ✅</button>
       </div>
     </form>
   </div>
 </body>
 </html>
+

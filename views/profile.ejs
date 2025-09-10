@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Profile - Eduventure</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= t.myProfile %> - <%= t.eduventure %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div class="app-layout">
-    <aside class="sidebar">
-      <h2 class="text-2xl font-bold mb-4">Eduventure</h2>
-      <a href="/student">🏠 Dashboard</a>
-      <a href="/leaderboard">🏆 Leaderboard</a>
-      <a href="/ask-ai">🤖 AI Tutor</a>
-      <a href="/profile" class="active">👤 My Profile</a>
-      <a href="/logout">🚪 Logout</a>
-    </aside>
+    <div class="app-layout">
+        <%- include('partials/sidebar') %>
+        <main class="main-content">
+            <h1 class="text-3xl font-bold mb-6 text-blue-400"><%= t.myProfile %></h1>
+            <div class="card p-6 space-y-3 text-lg">
+                <p><strong><%= t.name %>:</strong> <%= user.details.name %></p>
+                <p><strong><%= t.grade %>:</strong> <%= user.details.grade %></p>
+                <p><strong><%= t.adventurePoints %>:</strong> <%= user.details.adventurePoints %></p>
+                
+                <p><strong><%= t.badges %>:</strong>
+                    <% if (user.details.badges && user.details.badges.length > 0) { %>
+                        <%= user.details.badges.join(', ') %>
+                    <% } else { %>
+                        <span class="text-gray-500"><%= t.noBadges %></span>
+                    <% } %>
+                </p>
 
-    <main class="main-content">
-      <h1 class="text-3xl font-bold mb-4">Profile</h1>
-      <div class="content-card max-w-md">
-        <p><strong>Name:</strong> <%= user.details.name %></p>
-        <p><strong>Email:</strong> <%= user.details.email %></p>
-        <p><strong>Grade:</strong> <%= user.details.grade %></p>
-        <p><strong>Adventure Points:</strong> <%= user.details.adventurePoints %></p>
-        <p><strong>Badges:</strong> <%= user.details.badges.map(b=>b.name).join(', ') %></p>
-      </div>
-    </main>
-  </div>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
+

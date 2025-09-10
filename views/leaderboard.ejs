@@ -1,90 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <title>Leaderboard - Eduventure</title>
-  <link rel="stylesheet" href="/css/leaderboard.css">
-  <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= t.leaderboard %> - <%= t.eduventure %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/leaderboard.css">
 </head>
 <body>
-
-  <%- include('partials/sidebar') %>
-
-  <div class="leaderboard-container">
-    <div class="leaderboard-card">
-      <h1>🏆 Leaderboard</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Student</th>
-            <th>Grade</th>
-            <th>School</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="top-player">
-            <td class="rank">1</td>
-            <td>Arjun Mehta</td>
-            <td>10</td>
-            <td>Delhi Public School</td>
-            <td>980</td>
-          </tr>
-          <tr class="top-player">
-            <td class="rank">2</td>
-            <td>Riya Sharma</td>
-            <td>9</td>
-            <td>Kendriya Vidyalaya</td>
-            <td>950</td>
-          </tr>
-          <tr>
-            <td class="rank">3</td>
-            <td>Karan Patel</td>
-            <td>10</td>
-            <td>St. Xavier’s</td>
-            <td>940</td>
-          </tr>
-          <tr>
-            <td class="rank">4</td>
-            <td>Simran Kaur</td>
-            <td>8</td>
-            <td>DAV School</td>
-            <td>910</td>
-          </tr>
-          <tr>
-            <td class="rank">5</td>
-            <td>Aman Gupta</td>
-            <td>11</td>
-            <td>Springfield</td>
-            <td>890</td>
-          </tr>
-          <tr>
-            <td class="rank">6</td>
-            <td>Neha Verma</td>
-            <td>9</td>
-            <td>Modern Academy</td>
-            <td>870</td>
-          </tr>
-          <tr>
-            <td class="rank">7</td>
-            <td>Sahil Khan</td>
-            <td>10</td>
-            <td>Greenfield School</td>
-            <td>850</td>
-          </tr>
-          <tr>
-            <td class="rank">8</td>
-            <td>Ananya Joshi</td>
-            <td>8</td>
-            <td>City Montessori</td>
-            <td>820</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="app-layout">
+        <%- include('partials/sidebar') %>
+        <main class="main-content">
+            <div class="leaderboard-card">
+                <h1 class="text-3xl font-bold mb-6 text-blue-400"><%= t.leaderboard %></h1>
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b-2 border-gray-700">
+                            <th class="p-3">Rank</th>
+                            <th class="p-3"><%= t.student %></th>
+                            <th class="p-3"><%= t.grade %></th>
+                            <th class="p-3"><%= t.score %></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (students && students.length > 0) { %>
+                            <% students.forEach((student, index) => { %>
+                                <tr class="border-b border-gray-800 hover:bg-gray-800/50">
+                                    <td class="p-3 rank"><%= index + 1 %></td>
+                                    <td class="p-3"><%= student.details.name %></td>
+                                    <td class="p-3"><%= student.details.grade %></td>
+                                    <td class="p-3"><%= student.details.adventurePoints %></td>
+                                </tr>
+                            <% }) %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="4" class="text-center p-6 text-gray-500">The leaderboard is currently empty.</td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </main>
     </div>
-  </div>
-
 </body>
 </html>
 
