@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= isEditing ? 'Edit' : 'Create' %> Quiz - Eduventure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <%- include('partials/sidebar') %>
+        <main class="main-content">
+            <h1 class="text-3xl font-bold mb-6 text-blue-400"><%= isEditing ? 'Edit' : 'Create' %> Quiz</h1>
+            
+            <div class="card p-8">
+                <form method="POST">
+                    <!-- Quiz Details -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <label for="title" class="block text-sm font-medium text-gray-300">Quiz Title</label>
+                            <input type="text" name="title" id="title" value="<%= quiz.title %>" required class="input-field mt-1">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-300">Subject</label>
+                            <input type="text" name="subject" id="subject" value="<%= quiz.subject %>" required class="input-field mt-1">
+                        </div>
+                    </div>
+
+                    <!-- Questions Container -->
+                    <h2 class="text-2xl font-semibold mb-4 text-blue-300">Questions</h2>
+                    <div id="questions-container" class="space-y-6">
+                        <% quiz.questions.forEach((q, index) => { %>
+                            <div class="question-card border border-gray-700 p-4 rounded-lg">
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="block text-lg font-medium text-gray-300">Question <%= index + 1 %></label>
+                                    <button type="button" class="text-red-400 hover:underline remove-question">Remove</button>
+                                </div>
+                                <input type="text" name="questions[<%= index %>][question]" value="<%= q.question %>" placeholder="Question text" required class="input-field w-full mb-3">
+                                <div class="grid grid-cols-2 gap-3">
+                                    <% q.options.forEach((opt, optIndex) => { %>
+                                        <input type="text" name="questions[<%= index %>][options][<%= optIndex %>]" value="<%= opt %>" placeholder="Option <%= optIndex + 1 %>" required class="input-field">
+                                    <% }) %>
+                                </div>
+                                <div class="mt-3">
+                                    <label class="block text-sm font-medium text-gray-300">Correct Answer</label>
+                                    <select name="questions[<%= index %>][answer]" class="input-field w-full mt-1">
+                                        <% for(let i = 0; i < 4; i++) { %>
+                                            <option value="<%= i %>" <%= q.answer == i ? 'selected' : '' %>>Option <%= i + 1 %></option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                    
+                    <button type="button" id="add-question" class="mt-6 text-blue-400 hover:underline">+ Add Another Question</button>
+                    
+                    <hr class="border-gray-700 my-8">
+
+                    <button type="submit" class="btn-primary w-full py-3"><%= isEditing ? 'Save Changes' : 'Create Quiz' %></button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const questionsContainer = document.getElementById('questions-container');
+        const addQuestionBtn = document.getElementById('add-question');
+        let questionIndex = document.querySelectorAll('.question-card').length;
+
+        addQuestionBtn.addEventListener('click', () => {
+            const questionCard = document.createElement('div');
+            questionCard.className = 'question-card border border-gray-700 p-4 rounded-lg animate-fade-in';
+            questionCard.innerHTML = `
+                <div class="flex justify-between items-center mb-2">
+                    <label class="block text-lg font-medium text-gray-300">Question ${questionIndex + 1}</label>
+                    <button type="button" class="text-red-400 hover:underline remove-question">Remove</button>
+                </div>
+                <input type="text" name="questions[${questionIndex}][question]" placeholder="Question text" required class="input-field w-full mb-3">
+                <div class="grid grid-cols-2 gap-3">
+                    <input type="text" name="questions[${questionIndex}][options][0]" placeholder="Option 1" required class="input-field">
+                    <input type="text" name="questions[${questionIndex}][options][1]" placeholder="Option 2" required class="input-field">
+                    <input type="text" name="questions[${questionIndex}][options][2]" placeholder="Option 3" required class="input-field">
+                    <input type="text" name="questions[${questionIndex}][options][3]" placeholder="Option 4" required class="input-field">
+                </div>
+                <div class="mt-3">
+                    <label class="block text-sm font-medium text-gray-300">Correct Answer</label>
+                    <select name="questions[${questionIndex}][answer]" class="input-field w-full mt-1">
+                        <option value="0" selected>Option 1</option>
+                        <option value="1">Option 2</option>
+                        <option value="2">Option 3</option>
+                        <option value="3">Option 4</option>
+                    </select>
+                </div>
+            `;
+            questionsContainer.appendChild(questionCard);
+            questionIndex++;
+        });
+
+        questionsContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-question')) {
+                e.target.closest('.question-card').remove();
+                // Re-label questions after removal for clean UI
+                const allQuestionLabels = document.querySelectorAll('.question-card label:first-child');
+                allQuestionLabels.forEach((label, index) => {
+                    label.textContent = `Question ${index + 1}`;
+                });
+                questionIndex = document.querySelectorAll('.question-card').length;
+            }
+        });
+    });
+</script>
+<style>
+    @keyframes fade-in {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+        animation: fade-in 0.5s ease-out forwards;
+    }
+</style>
+</body>
+</html>
+

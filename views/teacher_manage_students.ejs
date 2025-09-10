@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Students - Eduventure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <%- include('partials/sidebar') %>
+        <main class="main-content">
+            <h1 class="text-3xl font-bold mb-6 text-blue-400">Manage Students</h1>
+            
+            <!-- Add New Student Card -->
+            <div class="card p-6 mb-8">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-300">Add New Student</h2>
+                <form action="/teacher/students/add" method="POST" class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300">Full Name</label>
+                        <input type="text" name="name" id="name" required class="input-field mt-1">
+                    </div>
+                    <div>
+                        <label for="grade" class="block text-sm font-medium text-gray-300">Grade</label>
+                        <input type="number" name="grade" id="grade" required class="input-field mt-1">
+                    </div>
+                    <button type="submit" class="btn-primary py-2.5 h-fit">Add Student</button>
+                </form>
+            </div>
+
+            <!-- Existing Students Table -->
+            <div class="card p-6">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-300">Student Roster</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b border-gray-700">
+                                <th class="p-3">Name</th>
+                                <th class="p-3">Grade</th>
+                                <th class="p-3">Adventure Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% students.forEach(student => { %>
+                                <tr class="border-b border-gray-800 hover:bg-gray-800/50">
+                                    <td class="p-3"><%= student.name %></td>
+                                    <td class="p-3"><%= student.grade %></td>
+                                    <td class="p-3"><%= student.adventurePoints %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

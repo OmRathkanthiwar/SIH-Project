@@ -1,70 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teacher Dashboard - Eduventure</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Eduventure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="bg-gray-100 flex">
-  <%- include('partials/sidebar') %>
+<body>
+    <div class="app-layout">
+        <%- include('partials/sidebar') %>
+        <main class="main-content">
+            <h1 class="text-3xl font-bold"><%= greeting %>, <%= user.details.name %>!</h1>
+            <p class="text-foreground/70 mb-8">Welcome to your command center.</p>
 
-<div class="main-content">
-    <h1><%= greeting %>, <%= user.details?.name || user.username %> 👋</h1>
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="card p-6 flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-400">Total Students</p>
+                        <p class="text-3xl font-bold text-blue-300"><%= students.length %></p>
+                    </div>
+                    <div class="text-4xl">🧑‍🎓</div>
+                </div>
+                <div class="card p-6 flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-400">Total Quizzes</p>
+                        <p class="text-3xl font-bold text-blue-300"><%= quizzes.length %></p>
+                    </div>
+                    <div class="text-4xl">📝</div>
+                </div>
+            </div>
 
-    <!-- rest of your dashboard content -->
-</div>
-
-  <aside class="w-64 bg-gray-800 text-white p-4 flex flex-col">
-    <div class="text-xl font-bold mb-8">Eduventure</div>
-    <nav class="flex flex-col gap-2">
-      <a href="/teacher" class="p-2 rounded hover:bg-gray-700 bg-gray-700">🏠 Dashboard</a>
-      <a href="/teacher/quizzes" class="p-2 rounded hover:bg-gray-700">📝 Quizzes</a>
-      <a href="/teacher/students" class="p-2 rounded hover:bg-gray-700">👨‍🎓 Students</a>
-      <a href="/logout" class="mt-auto p-2 rounded hover:bg-gray-700">🚪 Logout</a>
-    </nav>
-  </aside>
-
-  <main class="flex-1 p-6">
-    <h1 class="text-3xl font-bold mb-6">Welcome, <%= user.details.name %></h1>
-
-    <% if (quizzes.length > 0) { %>
-      <h2 class="text-2xl font-semibold mb-4">Quizzes</h2>
-      <div class="grid grid-cols-2 gap-4 mb-8">
-        <% quizzes.forEach(q => { %>
-          <div class="p-4 bg-white rounded shadow">
-            <h3 class="font-bold"><%= q.title %></h3>
-            <p><%= q.subject %> - <%= q.points %> points</p>
-          </div>
-        <% }) %>
-      </div>
-    <% } %>
-
-    <% if (students.length > 0) { %>
-      <h2 class="text-2xl font-semibold mb-4">Students</h2>
-      <div class="bg-white rounded shadow p-4">
-        <table class="w-full">
-          <thead class="bg-gray-200">
-            <tr>
-              <th class="p-2 text-left">Name</th>
-              <th class="p-2 text-left">Grade</th>
-              <th class="p-2 text-left">Points</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% students.forEach(s => { %>
-              <tr class="border-b">
-                <td class="p-2"><%= s.name %></td>
-                <td class="p-2"><%= s.grade %></td>
-                <td class="p-2"><%= s.adventurePoints %></td>
-              </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      </div>
-    <% } %>
-  </main>
-
+            <!-- Quick Actions -->
+            <div class="card p-6">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-300">Quick Actions</h2>
+                <div class="flex gap-4">
+                    <a href="/teacher/students" class="btn-primary flex-1 text-center py-3">Manage Students</a>
+                    <a href="/teacher/quizzes" class="btn-primary flex-1 text-center py-3">Manage Quizzes</a>
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
